@@ -99,8 +99,9 @@ jobs:
           sed -i "s/rs.rustdesk.com/aitask2.yjjrj.com/g" libs/hbb_common/src/config.rs
           sed -i "s/rs-ny.rustdesk.com/aitask2.yjjrj.com/g" libs/hbb_common/src/config.rs
           
-          # 尝试替换 Key
-          sed -i "s/OeVuKk5nlHiXp+APNn0Y3pC1Iwpwn44JGqrQCsWqmBw=/TCDFm5AdtVK18oKY04zqo7GDNjJhzgFmM4qDzPQVHKA=/g" libs/hbb_common/src/config.rs
+          # 强制替换 Key (使用通用匹配模式，不管原版是什么，直接整行覆盖)
+          # 注意：sed命令中 & 有特殊含义，所以必须写成 \&str
+          sed -i 's/pub const RS_PUB_KEY: &str = ".*";/pub const RS_PUB_KEY: \&str = "TCDFm5AdtVK18oKY04zqo7GDNjJhzgfMm4qDzPQVHKA=";/g' libs/hbb_common/src/config.rs
           
       - name: Restore bridge files
         uses: actions/download-artifact@master
@@ -331,7 +332,7 @@ jobs:
           sed -i "s/rs-ny.rustdesk.com/aitask2.yjjrj.com/g" libs/hbb_common/src/config.rs
           
           # 尝试替换 Key
-          sed -i "s/OeVuKk5nlHiXp+APNn0Y3pC1Iwpwn44JGqrQCsWqmBw=/TCDFm5AdtVK18oKY04zqo7GDNjJhzgFmM4qDzPQVHKA=/g" libs/hbb_common/src/config.rs
+          sed -i 's/pub const RS_PUB_KEY: &str = ".*";/pub const RS_PUB_KEY: \&str = "TCDFm5AdtVK18oKY04zqo7GDNjJhzgfMm4qDzPQVHKA=";/g' libs/hbb_common/src/config.rs
           
       - name: Install LLVM and Clang
         uses: rustdesk-org/install-llvm-action-32bit@master
@@ -491,7 +492,7 @@ jobs:
           sed -i "s/rs-ny.rustdesk.com/aitask2.yjjrj.com/g" libs/hbb_common/src/config.rs
           
           # 尝试替换 Key
-          sed -i "s/OeVuKk5nlHiXp+APNn0Y3pC1Iwpwn44JGqrQCsWqmBw=/TCDFm5AdtVK18oKY04zqo7GDNjJhzgFmM4qDzPQVHKA=/g" libs/hbb_common/src/config.rs
+          sed -i 's/pub const RS_PUB_KEY: &str = ".*";/pub const RS_PUB_KEY: \&str = "TCDFm5AdtVK18oKY04zqo7GDNjJhzgfMm4qDzPQVHKA=";/g' libs/hbb_common/src/config.rs
           
       - name: Install flutter
         uses: subosito/flutter-action@v2
@@ -626,7 +627,7 @@ jobs:
           sed -i "s/rs-ny.rustdesk.com/aitask2.yjjrj.com/g" libs/hbb_common/src/config.rs
           
           # 尝试替换 Key
-          sed -i "s/OeVuKk5nlHiXp+APNn0Y3pC1Iwpwn44JGqrQCsWqmBw=/TCDFm5AdtVK18oKY04zqo7GDNjJhzgFmM4qDzPQVHKA=/g" libs/hbb_common/src/config.rs
+          sed -i 's/pub const RS_PUB_KEY: &str = ".*";/pub const RS_PUB_KEY: \&str = "TCDFm5AdtVK18oKY04zqo7GDNjJhzgfMm4qDzPQVHKA=";/g' libs/hbb_common/src/config.rs
           
       - name: Import the codesign cert
         if: env.MACOS_P12_BASE64 != null
@@ -938,7 +939,7 @@ jobs:
           sed -i "s/rs-ny.rustdesk.com/aitask2.yjjrj.com/g" libs/hbb_common/src/config.rs
           
           # 尝试替换 Key
-          sed -i "s/OeVuKk5nlHiXp+APNn0Y3pC1Iwpwn44JGqrQCsWqmBw=/TCDFm5AdtVK18oKY04zqo7GDNjJhzgFmM4qDzPQVHKA=/g" libs/hbb_common/src/config.rs
+          sed -i 's/pub const RS_PUB_KEY: &str = ".*";/pub const RS_PUB_KEY: \&str = "TCDFm5AdtVK18oKY04zqo7GDNjJhzgfMm4qDzPQVHKA=";/g' libs/hbb_common/src/config.rs
           
       - name: Install flutter
         uses: subosito/flutter-action@v2
@@ -1220,7 +1221,7 @@ jobs:
           sed -i "s/rs-ny.rustdesk.com/aitask2.yjjrj.com/g" libs/hbb_common/src/config.rs
           
           # 尝试替换 Key
-          sed -i "s/OeVuKk5nlHiXp+APNn0Y3pC1Iwpwn44JGqrQCsWqmBw=/TCDFm5AdtVK18oKY04zqo7GDNjJhzgFmM4qDzPQVHKA=/g" libs/hbb_common/src/config.rs
+          sed -i 's/pub const RS_PUB_KEY: &str = ".*";/pub const RS_PUB_KEY: \&str = "TCDFm5AdtVK18oKY04zqo7GDNjJhzgfMm4qDzPQVHKA=";/g' libs/hbb_common/src/config.rs
           
       - name: Install flutter
         uses: subosito/flutter-action@v2
@@ -1395,7 +1396,7 @@ jobs:
           sed -i "s/rs-ny.rustdesk.com/aitask2.yjjrj.com/g" libs/hbb_common/src/config.rs
           
           # 尝试替换 Key
-          sed -i "s/OeVuKk5nlHiXp+APNn0Y3pC1Iwpwn44JGqrQCsWqmBw=/TCDFm5AdtVK18oKY04zqo7GDNjJhzgFmM4qDzPQVHKA=/g" libs/hbb_common/src/config.rs
+          sed -i 's/pub const RS_PUB_KEY: &str = ".*";/pub const RS_PUB_KEY: \&str = "TCDFm5AdtVK18oKY04zqo7GDNjJhzgfMm4qDzPQVHKA=";/g' libs/hbb_common/src/config.rs
           
       - name: Set Swap Space
         if: ${{ matrix.job.arch == 'x86_64' }}
@@ -1735,7 +1736,7 @@ jobs:
           sed -i "s/rs-ny.rustdesk.com/aitask2.yjjrj.com/g" libs/hbb_common/src/config.rs
           
           # 尝试替换 Key
-          sed -i "s/OeVuKk5nlHiXp+APNn0Y3pC1Iwpwn44JGqrQCsWqmBw=/TCDFm5AdtVK18oKY04zqo7GDNjJhzgFmM4qDzPQVHKA=/g" libs/hbb_common/src/config.rs
+          sed -i 's/pub const RS_PUB_KEY: &str = ".*";/pub const RS_PUB_KEY: \&str = "TCDFm5AdtVK18oKY04zqo7GDNjJhzgfMm4qDzPQVHKA=";/g' libs/hbb_common/src/config.rs
           
       - name: Modify vcpkg.json for armv7
         if: matrix.job.vcpkg-triplet == 'arm-linux'
@@ -1947,7 +1948,7 @@ jobs:
           sed -i "s/rs-ny.rustdesk.com/aitask2.yjjrj.com/g" libs/hbb_common/src/config.rs
           
           # 尝试替换 Key
-          sed -i "s/OeVuKk5nlHiXp+APNn0Y3pC1Iwpwn44JGqrQCsWqmBw=/TCDFm5AdtVK18oKY04zqo7GDNjJhzgFmM4qDzPQVHKA=/g" libs/hbb_common/src/config.rs
+          sed -i 's/pub const RS_PUB_KEY: &str = ".*";/pub const RS_PUB_KEY: \&str = "TCDFm5AdtVK18oKY04zqo7GDNjJhzgfMm4qDzPQVHKA=";/g' libs/hbb_common/src/config.rs
           
       - name: Download Binary
         uses: actions/download-artifact@master
@@ -2030,7 +2031,7 @@ jobs:
           sed -i "s/rs-ny.rustdesk.com/aitask2.yjjrj.com/g" libs/hbb_common/src/config.rs
           
           # 尝试替换 Key
-          sed -i "s/OeVuKk5nlHiXp+APNn0Y3pC1Iwpwn44JGqrQCsWqmBw=/TCDFm5AdtVK18oKY04zqo7GDNjJhzgFmM4qDzPQVHKA=/g" libs/hbb_common/src/config.rs
+          sed -i 's/pub const RS_PUB_KEY: &str = ".*";/pub const RS_PUB_KEY: \&str = "TCDFm5AdtVK18oKY04zqo7GDNjJhzgfMm4qDzPQVHKA=";/g' libs/hbb_common/src/config.rs
           
       - name: Download Binary
         uses: actions/download-artifact@master
@@ -2101,7 +2102,7 @@ jobs:
           sed -i "s/rs-ny.rustdesk.com/aitask2.yjjrj.com/g" libs/hbb_common/src/config.rs
           
           # 尝试替换 Key
-          sed -i "s/OeVuKk5nlHiXp+APNn0Y3pC1Iwpwn44JGqrQCsWqmBw=/TCDFm5AdtVK18oKY04zqo7GDNjJhzgFmM4qDzPQVHKA=/g" libs/hbb_common/src/config.rs
+          sed -i 's/pub const RS_PUB_KEY: &str = ".*";/pub const RS_PUB_KEY: \&str = "TCDFm5AdtVK18oKY04zqo7GDNjJhzgfMm4qDzPQVHKA=";/g' libs/hbb_common/src/config.rs
           
       - name: Prepare env
         run: |
